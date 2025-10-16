@@ -71,15 +71,93 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-自动监听 + 自动发布" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-Hexo 一键发布脚本" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/10/16/%E8%87%AA%E5%8A%A8%E7%9B%91%E5%90%AC%20+%20%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/" class="article-date">
-  <time class="dt-published" datetime="2025-10-16T00:40:56.727Z" itemprop="datePublished">2025-10-16</time>
+    <a href="/2025/10/16/Hexo%20%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E8%84%9A%E6%9C%AC/" class="article-date">
+  <time class="dt-published" datetime="2025-10-16T00:30:00.000Z" itemprop="datePublished">2025-10-16</time>
 </a>
     
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/10/16/Hexo%20%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E8%84%9A%E6%9C%AC/">Hexo 一键发布脚本</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>太好了 😎！那我们就来搞个 Hexo 一键发布脚本，让你以后写完文章后一行命令就能完成：<br>✅ 清理缓存<br>✅ 生成页面<br>✅ 上传 GitHub<br>✅ 自动打开你的博客网站</p>
+<p>🚀 一、创建脚本文件</p>
+<p>在你的 Hexo 博客根目录（myblog） 下，新建一个文件：</p>
+<p>Windows：</p>
+<p>文件名：deploy.bat</p>
+<p>🧾 二、写入以下内容<br>@echo off<br>echo &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>echo 🚀 Hexo 博客一键发布工具 by ChatGPT<br>echo &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>echo.</p>
+<p>:: 1. 清理缓存<br>echo 🔄 正在清理旧文件…<br>call hexo clean</p>
+<p>:: 2. 生成静态文件<br>echo 🏗️ 正在生成静态页面…<br>call hexo generate</p>
+<p>:: 3. 部署到 GitHub<br>echo 🌍 正在上传到 GitHub Pages…<br>call hexo deploy</p>
+<p>:: 4. 自动打开网站<br>echo 🌐 打开博客网页…<br>start https:&#x2F;&#x2F;你的用户名.github.io&#x2F;你的仓库名&#x2F;</p>
+<p>echo ✅ 部署完成！按任意键退出。<br>pause &gt;nul</p>
+<p>🧩 三、替换成你的信息</p>
+<p>把最后一行的网址：</p>
+<p>https:&#x2F;&#x2F;你的用户名.github.io&#x2F;你的仓库名&#x2F;</p>
+<p>换成你的真实博客地址，例如：</p>
+<p><a target="_blank" rel="noopener" href="https://179q.github.io/myblog/">https://179Q.github.io/myblog/</a></p>
+<p>🧱 四、使用方法</p>
+<p>以后每次写完文章，只要：</p>
+<p>保存 Markdown 文件（在 source&#x2F;_posts 下）；</p>
+<p>双击运行 deploy.bat；</p>
+<p>它会自动帮你：</p>
+<p>清理缓存；</p>
+<p>生成网站；</p>
+<p>上传 GitHub；</p>
+<p>打开你的博客。</p>
+<p>整个过程只需几十秒 💨。</p>
+<p>⚙️ 五、进阶版（自动保存+发布）</p>
+<p>如果你想要更高级一点的效果（例如自动保存修改、检测变动就部署），<br>我可以帮你写一个 Node.js 自动监听脚本（持续监控 _posts 文件夹的变化，一旦你保存新文章，就自动执行 hexo clean &amp;&amp; hexo g &amp;&amp; hexo d）。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/10/16/Hexo%20%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E8%84%9A%E6%9C%AC/" data-id="cmgsw1d510000hc8ceuam355g" data-title="Hexo 一键发布脚本" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-自动监听 + 自动发布" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/10/16/%E8%87%AA%E5%8A%A8%E7%9B%91%E5%90%AC%20+%20%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/" class="article-date">
+  <time class="dt-published" datetime="2025-10-16T00:30:00.000Z" itemprop="datePublished">2025-10-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/10/16/%E8%87%AA%E5%8A%A8%E7%9B%91%E5%90%AC%20+%20%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/">监听发布</a>
+    </h1>
+  
+
+      </header>
     
     <div class="e-content article-entry" itemprop="articleBody">
       
@@ -126,66 +204,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/16/%E8%87%AA%E5%8A%A8%E7%9B%91%E5%90%AC%20+%20%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/" data-id="cmgspf5o40003gw8c6ecc3px6" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/10/16/%E8%87%AA%E5%8A%A8%E7%9B%91%E5%90%AC%20+%20%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/" data-id="cmgsw1d5i0005hc8c55rfhm0b" data-title="监听发布" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
-    </footer>
-  </div>
-  
-</article>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
 
-
-
-  
-    <article id="post-Hexo 一键发布脚本" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/10/16/Hexo%20%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E8%84%9A%E6%9C%AC/" class="article-date">
-  <time class="dt-published" datetime="2025-10-16T00:26:06.582Z" itemprop="datePublished">2025-10-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>太好了 😎！那我们就来搞个 Hexo 一键发布脚本，让你以后写完文章后一行命令就能完成：<br>✅ 清理缓存<br>✅ 生成页面<br>✅ 上传 GitHub<br>✅ 自动打开你的博客网站</p>
-<p>🚀 一、创建脚本文件</p>
-<p>在你的 Hexo 博客根目录（myblog） 下，新建一个文件：</p>
-<p>Windows：</p>
-<p>文件名：deploy.bat</p>
-<p>🧾 二、写入以下内容<br>@echo off<br>echo &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>echo 🚀 Hexo 博客一键发布工具 by ChatGPT<br>echo &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>echo.</p>
-<p>:: 1. 清理缓存<br>echo 🔄 正在清理旧文件…<br>call hexo clean</p>
-<p>:: 2. 生成静态文件<br>echo 🏗️ 正在生成静态页面…<br>call hexo generate</p>
-<p>:: 3. 部署到 GitHub<br>echo 🌍 正在上传到 GitHub Pages…<br>call hexo deploy</p>
-<p>:: 4. 自动打开网站<br>echo 🌐 打开博客网页…<br>start https:&#x2F;&#x2F;你的用户名.github.io&#x2F;你的仓库名&#x2F;</p>
-<p>echo ✅ 部署完成！按任意键退出。<br>pause &gt;nul</p>
-<p>🧩 三、替换成你的信息</p>
-<p>把最后一行的网址：</p>
-<p>https:&#x2F;&#x2F;你的用户名.github.io&#x2F;你的仓库名&#x2F;</p>
-<p>换成你的真实博客地址，例如：</p>
-<p><a target="_blank" rel="noopener" href="https://179q.github.io/myblog/">https://179Q.github.io/myblog/</a></p>
-<p>🧱 四、使用方法</p>
-<p>以后每次写完文章，只要：</p>
-<p>保存 Markdown 文件（在 source&#x2F;_posts 下）；</p>
-<p>双击运行 deploy.bat；</p>
-<p>它会自动帮你：</p>
-<p>清理缓存；</p>
-<p>生成网站；</p>
-<p>上传 GitHub；</p>
-<p>打开你的博客。</p>
-<p>整个过程只需几十秒 💨。</p>
-<p>⚙️ 五、进阶版（自动保存+发布）</p>
-<p>如果你想要更高级一点的效果（例如自动保存修改、检测变动就部署），<br>我可以帮你写一个 Node.js 自动监听脚本（持续监控 _posts 文件夹的变化，一旦你保存新文章，就自动执行 hexo clean &amp;&amp; hexo g &amp;&amp; hexo d）。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/16/Hexo%20%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E8%84%9A%E6%9C%AC/" data-id="cmgspf5nq0000gw8chrwpdb9e" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
     </footer>
   </div>
   
@@ -221,7 +245,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/15/%E6%88%91%E7%9A%84%E6%96%B0%E6%96%87%E7%AB%A0/" data-id="cmgspf5nx0001gw8c053e1shb" data-title="我的新文章" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/10/15/%E6%88%91%E7%9A%84%E6%96%B0%E6%96%87%E7%AB%A0/" data-id="cmgsw1d570001hc8c4lg21z1m" data-title="我的新文章" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -272,7 +296,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/15/hello-world/" data-id="cmgspf5nz0002gw8c9sakhfm3" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/10/15/hello-world/" data-id="cmgsw1d5b0003hc8ch35r1of7" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -294,9 +318,23 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -315,11 +353,11 @@
       <ul>
         
           <li>
-            <a href="/2025/10/16/%E8%87%AA%E5%8A%A8%E7%9B%91%E5%90%AC%20+%20%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/">(no title)</a>
+            <a href="/2025/10/16/Hexo%20%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E8%84%9A%E6%9C%AC/">Hexo 一键发布脚本</a>
           </li>
         
           <li>
-            <a href="/2025/10/16/Hexo%20%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E8%84%9A%E6%9C%AC/">(no title)</a>
+            <a href="/2025/10/16/%E8%87%AA%E5%8A%A8%E7%9B%91%E5%90%AC%20+%20%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/">监听发布</a>
           </li>
         
           <li>
