@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="非常好 👍 你要的是“写完保存 → 自动生成 → 自动发布到 GitHub Pages”的完整自动流程，对吧？我们可以做到！下面是详细方案👇 🚀 一、实现目标 你只要在 source&#x2F;_posts&#x2F; 下写文章（保存 .md 文件），系统会自动执行： hexo generate 生成静态网页； hexo deploy 自动发布到 GitHub Pages。 🧩 二、方法一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/10/16/%E8%87%AA%E5%8A%A8%E7%9B%91%E5%90%AC%20+%20%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="非常好 👍 你要的是“写完保存 → 自动生成 → 自动发布到 GitHub Pages”的完整自动流程，对吧？我们可以做到！下面是详细方案👇 🚀 一、实现目标 你只要在 source&#x2F;_posts&#x2F; 下写文章（保存 .md 文件），系统会自动执行： hexo generate 生成静态网页； hexo deploy 自动发布到 GitHub Pages。 🧩 二、方法一">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-10-16T00:40:56.727Z">
+<meta property="article:modified_time" content="2025-10-16T00:40:57.214Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-自动监听 + 自动发布" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/10/16/%E8%87%AA%E5%8A%A8%E7%9B%91%E5%90%AC%20+%20%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/" class="article-date">
+  <time class="dt-published" datetime="2025-10-16T00:40:56.727Z" itemprop="datePublished">2025-10-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>非常好 👍 你要的是“写完保存 → 自动生成 → 自动发布到 GitHub Pages”的完整自动流程，对吧？<br>我们可以做到！下面是详细方案👇</p>
+<p>🚀 一、实现目标</p>
+<p>你只要在 source&#x2F;_posts&#x2F; 下写文章（保存 .md 文件），<br>系统会自动执行：</p>
+<p>hexo generate 生成静态网页；</p>
+<p>hexo deploy 自动发布到 GitHub Pages。</p>
+<p>🧩 二、方法一：用 Node.js 脚本 + chokidar 监听文件变化<br>1️⃣ 安装依赖</p>
+<p>在你的 Hexo 根目录执行：</p>
+<p>npm install chokidar –save-dev</p>
+<p>2️⃣ 创建一个脚本文件</p>
+<p>新建文件：auto-deploy.js</p>
+<p>内容如下：</p>
+<p>const { exec } &#x3D; require(“child_process”);<br>const chokidar &#x3D; require(“chokidar”);</p>
+<p>console.log(“🔍 正在监听文章变化…”);</p>
+<p>let deploying &#x3D; false;</p>
+<p>function deploy() {<br>  if (deploying) return;<br>  deploying &#x3D; true;</p>
+<p>  console.log(“🚧 检测到改动，开始生成并部署…”);<br>  exec(“hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy”, (err, stdout, stderr) &#x3D;&gt; {<br>    if (err) {<br>      console.error(“❌ 部署出错：”, err);<br>    } else {<br>      console.log(“✅ 部署完成！”);<br>      console.log(stdout);<br>    }<br>    deploying &#x3D; false;<br>  });<br>}</p>
+<p>&#x2F;&#x2F; 监听 source&#x2F;_posts 下的所有 md 文件<br>chokidar.watch(“source&#x2F;_posts&#x2F;**&#x2F;*.md”, {<br>  ignored: &#x2F;[/\].&#x2F;,<br>  persistent: true,<br>}).on(“change”, deploy)<br>  .on(“add”, deploy);</p>
+<p>console.log(“🟢 已启动自动部署监听！”);</p>
+<p>3️⃣ 运行脚本</p>
+<p>在命令行执行：</p>
+<p>node auto-deploy.js</p>
+<p>此时它会一直运行，当你新增或修改 .md 文件时，Hexo 会自动：</p>
+<p>清理缓存；</p>
+<p>重新生成；</p>
+<p>自动发布到 GitHub Pages。</p>
+<p>🧩 三、方法二（更简单但需自己运行一次命令）</p>
+<p>如果你不想一直开 Node.js，可以用：</p>
+<p>hexo server -w</p>
+<p>-w 参数会监听变化自动生成（但不会自动 deploy）。</p>
+<p>所以结合：</p>
+<p>hexo server -w<br>hexo deploy -g</p>
+<p>可半自动化。</p>
+<p>🧩 四、可选进阶：写成 npm script</p>
+<p>在 package.json 添加：</p>
+<p>“scripts”: {<br>  “autodeploy”: “node auto-deploy.js”<br>}</p>
+<p>然后你只需运行：</p>
+<p>npm run autodeploy</p>
+<p>搞定 ✅</p>
+<p>要不要我帮你把这个自动部署脚本改成 Windows 双击可运行版（.bat 文件）？<br>这样你点一下就能自动监听 + 发布。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/10/16/%E8%87%AA%E5%8A%A8%E7%9B%91%E5%90%AC%20+%20%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/" data-id="cmgsp9d6y0002t48c40s526q7" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2025/10/16/Hexo%20%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E8%84%9A%E6%9C%AC/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/10/16/%E8%87%AA%E5%8A%A8%E7%9B%91%E5%90%AC%20+%20%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/10/16/Hexo%20%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E8%84%9A%E6%9C%AC/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/10/15/%E6%88%91%E7%9A%84%E6%96%B0%E6%96%87%E7%AB%A0/">我的新文章</a>
+          </li>
+        
+          <li>
+            <a href="/2025/10/15/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
